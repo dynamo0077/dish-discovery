@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
     remotePatterns: [
       {
@@ -16,6 +18,19 @@ const nextConfig: NextConfig = {
         hostname: 'i.ytimg.com',
       },
     ],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+  },
+  // Optimizations
+  output: 'standalone',
+  experimental: {
+    workerThreads: true,
+  },
+  // Build optimizations
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 
