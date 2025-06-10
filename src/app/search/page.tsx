@@ -11,7 +11,7 @@ import SearchBar from '@/components/SearchBar';
 export default function SearchPage() {
   const searchParams = useSearchParams();
   const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [_isLoading, setIsLoading] = useState(true);
   const [selectedCategory] = useState<string>(
     searchParams.get('category') || ''
   );

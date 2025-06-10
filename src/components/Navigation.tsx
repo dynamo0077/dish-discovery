@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { HomeIcon, MagnifyingGlassIcon, HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
+import { HomeIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline';
 
 export default function Navigation() {
@@ -82,11 +82,7 @@ export default function Navigation() {
             href="/favorites" 
             className="flex flex-col items-center px-3 py-2 text-xs font-medium text-gray-500 hover:text-gray-700"
           >
-            {pathname === '/favorites' ? (
-            <HeartIconSolid className="h-6 w-6" />
-          ) : (
-            <HeartIconOutline className="h-6 w-6" />
-          )}
+            <HeartIconOutline className={`h-6 w-6 ${pathname === '/favorites' ? 'text-amber-600' : ''}`} />
             <span className="mt-1">Favorites</span>
           </Link>
         </div>

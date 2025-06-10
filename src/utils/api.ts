@@ -98,7 +98,9 @@ export const getRandomRecipes = async (count: number = 12): Promise<Recipe[]> =>
     const recipes = responses.map(response => response.data.meals?.[0]).filter(Boolean) as Recipe[];
     
     // Filter out beef recipes and limit to requested count
-    return recipes.filter(recipe => !isBeefRecipe(recipe)).slice(0, count);
+    return recipes
+      .filter(recipe => !isBeefRecipe(recipe))
+      .slice(0, count);
   } catch (error) {
     console.error('Error fetching random recipes:', error);
     return [];
