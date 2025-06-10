@@ -55,15 +55,20 @@ export default function RecipePage({ params }: { params: { id: string } }) {
   }
 
   // Extract ingredients and measures
-  const ingredients = [];
+  type IngredientItem = {
+    ingredient: string;
+    measure: string;
+  };
+
+  const ingredients: IngredientItem[] = [];
   for (let i = 1; i <= 20; i++) {
-    const ingredient = recipe[`strIngredient${i}` as keyof typeof recipe];
-    const measure = recipe[`strMeasure${i}` as keyof typeof recipe];
+    const ingredient = recipe[`strIngredient${i}` as keyof Recipe] as string | undefined;
+    const measure = recipe[`strMeasure${i}` as keyof Recipe] as string | undefined;
     
-    if (ingredient && ingredient.trim() !== '') {
+    if (ingredient && typeof ingredient === 'string' && ingredient.trim() !== '') {
       ingredients.push({
-        ingredient,
-        measure: measure || '',
+        ingredient: ingredient.trim(),
+        measure: (measure || '').trim(),
       });
     }
   }
@@ -103,7 +108,7 @@ export default function RecipePage({ params }: { params: { id: string } }) {
               priority
             />
             <div className="absolute top-4 right-4">
-              <FavoriteButton id={recipe.idMeal} recipe={recipe} size="lg" />
+              <FavoriteButton id={recipe.idMeal} size="lg" />
             </div>
           </div>
         </div>
@@ -132,14 +137,18 @@ export default function RecipePage({ params }: { params: { id: string } }) {
             <div className="mb-6">
               <h2 className="text-sm font-medium text-gray-500 mb-2">Tags</h2>
               <div className="flex flex-wrap gap-2">
-                {recipe.strTags.split(',').map((tag, index) => (
-                  <span 
-                    key={index}
-                    className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
-                  >
-                    {tag.trim()}
-                  </span>
-                ))}
+                {recipe.strTags
+                  .split(',')
+                  .map(tag => (typeof tag === 'string' ? tag.trim() : ''))
+                  .filter(Boolean)
+                  .map((tag, index) => (
+                    <span 
+                      key={index}
+                      className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >
+                      {tag}
+                    </span>
+                  ))}
               </div>
             </div>
           )}
