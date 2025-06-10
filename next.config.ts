@@ -7,23 +7,13 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'www.themealdb.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'www.youtube.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'i.ytimg.com',
+        port: '',
+        pathname: '/images/**',
       },
     ],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
   },
-  // Optimizations
   output: 'standalone',
-  experimental: {
-    workerThreads: true,
-  },
   // Build optimizations
   typescript: {
     ignoreBuildErrors: false,
