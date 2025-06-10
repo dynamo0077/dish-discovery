@@ -8,7 +8,13 @@ import { getRecipeById } from '@/utils/api';
 import { FavoriteButton } from '@/components';
 import { Recipe } from '@/types/recipe';
 
-export default function RecipePage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function RecipePage({ params }: PageProps) {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
