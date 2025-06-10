@@ -88,8 +88,6 @@ export const getRecipeById = async (id: string): Promise<Recipe | null> => {
 
 export const getRandomRecipes = async (count: number = 12): Promise<Recipe[]> => {
   try {
-    const nonBeefRecipes: Recipe[] = [];
-    
     // Fetch more than needed to account for filtered out beef recipes
     const fetchCount = Math.ceil(count * 1.5);
     const requests = Array(fetchCount).fill(null).map(() => 

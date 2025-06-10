@@ -69,9 +69,9 @@ export default async function Home() {
 
       {/* CTA Section */}
       <section className="bg-amber-50 rounded-xl p-8 text-center">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Can't find what you're looking for?</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Can&apos;t find what you&apos;re looking for?</h2>
         <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-          Try our advanced search to find the perfect recipe based on ingredients, cuisine, or dietary restrictions.
+          Find your next favorite dish with our AI-powered recipe search. Whether you&apos;re looking for quick meals, healthy options, or gourmet dinners, we&apos;ve got you covered.
         </p>
         <Link 
           href="/search" 

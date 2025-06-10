@@ -15,15 +15,13 @@ interface Category {
 export default function SearchPage() {
   const searchParams = useSearchParams();
   const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchResults, setSearchResults] = useState<Recipe[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string>(
+  const [selectedCategory] = useState<string>(
     searchParams.get('category') || ''
   );
   const searchQuery = searchParams.get('q') || '';
   
-  const categoriesData = useMemo(() => [
+  const categories = useMemo(() => [
     { idCategory: '2', strCategory: 'Chicken' },
     { idCategory: '3', strCategory: 'Dessert' },
     { idCategory: '4', strCategory: 'Lamb' },
@@ -56,7 +54,6 @@ export default function SearchPage() {
         }
         
         setRecipes(recipesData);
-        setCategories(categoriesData);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {

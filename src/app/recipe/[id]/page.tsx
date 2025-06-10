@@ -46,7 +46,7 @@ export default function RecipePage({ params }: { params: { id: string } }) {
     return (
       <div className="container mx-auto px-4 py-12 text-center">
         <h1 className="text-2xl font-bold text-gray-900 mb-4">Recipe not found</h1>
-        <p className="text-gray-600 mb-6">The recipe you're looking for doesn't exist or has been removed.</p>
+        <p className="text-gray-600 mb-6">The recipe you&apos;re looking for doesn&apos;t exist or has been removed.</p>
         <Link href="/" className="text-amber-600 hover:text-amber-700 font-medium">
           ← Back to home
         </Link>
