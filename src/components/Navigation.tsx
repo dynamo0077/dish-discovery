@@ -47,7 +47,7 @@ export default function Navigation() {
               className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
             >
               {pathname === '/favorites' ? (
-                <HeartIconSolid className="h-5 w-5 mr-1" />
+                <HeartIconOutline className="w-6 h-6 text-amber-600" />
               ) : (
                 <HeartIconOutline className="h-5 w-5 mr-1" />
               )}
