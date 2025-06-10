@@ -24,7 +24,6 @@ export default function SearchPage() {
   const searchQuery = searchParams.get('q') || '';
   
   const categoriesData = useMemo(() => [
-    { idCategory: '1', strCategory: 'Beef' },
     { idCategory: '2', strCategory: 'Chicken' },
     { idCategory: '3', strCategory: 'Dessert' },
     { idCategory: '4', strCategory: 'Lamb' },
