@@ -8,11 +8,10 @@ import { getRecipeById } from '@/utils/api';
 import { FavoriteButton } from '@/components';
 import { Recipe } from '@/types/recipe';
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
+type PageProps = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 export default function RecipePage({ params }: PageProps) {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
