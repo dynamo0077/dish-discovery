@@ -112,7 +112,7 @@ export default function RecipePage({ params }: { params: { id: string } }) {
         <div>
           <div className="flex justify-between items-start mb-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">{recipe.strMeal}</h1>
+              <h1 className="text-3xl font-bold text-gray-900 mb-6">{recipe.strMeal}</h1>
               <div className="flex flex-wrap gap-2 mb-4">
                 {recipe.strCategory && (
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-amber-100 text-amber-800">

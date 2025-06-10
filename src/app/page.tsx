@@ -10,11 +10,12 @@ export default async function Home() {
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
       <section className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Discover Delicious Recipes
-        </h1>
+        <h1 className="text-4xl font-bold text-center mb-6">&quot;Discover Delicious Recipes&quot;</h1>
+        <p className="text-xl text-center mb-8 max-w-2xl mx-auto">
+          Find and save your favorite recipes. Search by name or browse by category.
+        </p>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Find and save your favorite recipes from around the world. Cook with confidence using our easy-to-follow instructions.
+          Cook with confidence using our easy-to-follow instructions.
         </p>
         <div className="max-w-2xl mx-auto">
           <SearchBar />
