@@ -4,13 +4,9 @@ import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Recipe } from '@/types/recipe';
-import { searchRecipes, getMealsByCategory, getCategories } from '@/utils/api';
+import { searchRecipes, getMealsByCategory } from '@/utils/api';
 import RecipeCard from '@/components/RecipeCard';
 import SearchBar from '@/components/SearchBar';
-
-interface Category {
-  strCategory: string;
-}
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
@@ -21,7 +17,7 @@ export default function SearchPage() {
   );
   const searchQuery = searchParams.get('q') || '';
   
-  const categories = useMemo(() => [
+  const categories = [
     { idCategory: '2', strCategory: 'Chicken' },
     { idCategory: '3', strCategory: 'Dessert' },
     { idCategory: '4', strCategory: 'Lamb' },
@@ -35,22 +31,21 @@ export default function SearchPage() {
     { idCategory: '12', strCategory: 'Vegetarian' },
     { idCategory: '13', strCategory: 'Breakfast' },
     { idCategory: '14', strCategory: 'Goat' }
-  ], []);
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
         let recipesData: Recipe[] = [];
-        let categoriesData = await getCategories();
         
         if (searchQuery) {
           recipesData = await searchRecipes(searchQuery);
         } else if (selectedCategory) {
           recipesData = await getMealsByCategory(selectedCategory);
-        } else if (categoriesData.length > 0) {
+        } else if (categories.length > 0) {
           // Show popular recipes or empty state
-          recipesData = await getMealsByCategory(categoriesData[0].strCategory);
+          recipesData = await getMealsByCategory(categories[0].strCategory);
         }
         
         setRecipes(recipesData);
