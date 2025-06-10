@@ -10,7 +10,7 @@ interface FavoriteButtonProps {
   className?: string;
 }
 
-export default function FavoriteButton({ id, size = 'md', className = '' }: FavoriteButtonProps) {
+export function FavoriteButton({ id, size = 'md', className = '' }: FavoriteButtonProps) {
   const { isFavorite, toggleFavorite } = useFavorites();
   const isFav = isFavorite(id);
 

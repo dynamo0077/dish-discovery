@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getRecipeById } from '@/utils/api';
-import FavoriteButton from '@/components/FavoriteButton';
+import { FavoriteButton } from '@/components';
 import { Recipe } from '@/types/recipe';
 
 export default function RecipePage({ params }: { params: { id: string } }) {
